@@ -7,6 +7,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { trainingPatterns } from "@/data/patterns";
+import { trainingImages } from "@/data/trainingImages";
+import { ImageCarousel } from "@/components/ImageCarousel";
 
 const iconMap: Record<string, React.ReactNode> = {
     Code: <Code size={48} />,
@@ -89,23 +91,28 @@ export function TrainingClient({ service }: { service: ServiceType }) {
             <section className="py-12 pb-24 bg-slate-50 dark:bg-slate-950 relative">
                 <div className="container mx-auto px-4 max-w-4xl">
 
-                    {/* Dynamic Course Image (anasayfagorseldik.jpeg) */}
+                    {/* Eğitime ait görseller: Carousel veya tekli görsel */}
                     <motion.div
                         initial={{ y: 40, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="w-full aspect-[21/9] md:aspect-[3/1] bg-slate-200 dark:bg-slate-800/80 rounded-3xl mb-16 overflow-hidden relative group shadow-xl"
+                        className="mb-16"
                     >
-                        <Image
-                            src="/images/anasayfagorseldik.jpeg"
-                            alt={`${service.title} Eğitimi`}
-                            fill
-                            className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                            priority
-                        />
-                        <div className={`absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-60`} />
-                        <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
+                        {trainingImages[service.slug] && trainingImages[service.slug].length > 0 ? (
+                            <ImageCarousel images={trainingImages[service.slug]} title={service.title} />
+                        ) : (
+                            <div className="w-full aspect-[21/9] md:aspect-[3/1] bg-slate-200 dark:bg-slate-800/80 rounded-3xl overflow-hidden relative group shadow-xl">
+                                <Image
+                                    src="/images/anasayfagorseldik.jpeg"
+                                    alt={`${service.title} Eğitimi`}
+                                    fill
+                                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className={`absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-60`} />
+                                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
+                            </div>
+                        )}
                     </motion.div>
 
                     <motion.div
