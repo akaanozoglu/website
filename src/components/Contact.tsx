@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/Button";
-import { Send, Mail, MapPin, CalendarDays, AlertCircle, Phone, Linkedin } from "lucide-react";
+import { Send, Mail, MapPin, CalendarDays, AlertCircle, Phone, Linkedin, Instagram } from "lucide-react";
 
 export function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -122,6 +122,19 @@ export function Contact() {
                                 <p className="text-slate-400 mb-1">Profesyonel ağımda bana ulaşın.</p>
                                 <a href="https://www.linkedin.com/in/kaanozglu/" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 font-medium transition-colors">
                                     linkedin.com/in/kaanozglu
+                                </a>
+                            </div>
+                        </div>
+
+                        <div className="flex items-start gap-4">
+                            <div className="w-12 h-12 rounded-lg bg-slate-800/50 flex items-center justify-center text-primary-400 border border-slate-700/50">
+                                <Instagram size={24} />
+                            </div>
+                            <div>
+                                <h4 className="text-lg font-bold mb-1">Instagram</h4>
+                                <p className="text-slate-400 mb-1">Güncel paylaşımlarımı takip edin.</p>
+                                <a href="https://www.instagram.com/kaanozglu" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 font-medium transition-colors">
+                                    @kaanozglu
                                 </a>
                             </div>
                         </div>
