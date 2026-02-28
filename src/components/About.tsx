@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 
 export function About() {
     const highlights = [
@@ -16,18 +17,22 @@ export function About() {
             <div className="container mx-auto px-4 md:px-6 max-w-6xl">
                 <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-                    {/* Image/Visual Placeholder - To be replaced with actual image eventually */}
+                    {/* Ali Kaan Özoğlu Fotoğrafı */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.6 }}
-                        className="relative h-[500px] md:h-[600px] w-full max-w-md mx-auto rounded-2xl overflow-hidden glass-panel flex items-center justify-center border-slate-200 dark:border-slate-800"
+                        className="relative h-[500px] md:h-[600px] w-full max-w-md mx-auto rounded-2xl overflow-hidden glass-panel border-slate-200 dark:border-slate-800 shadow-xl"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/40 dark:to-accent-900/40 opacity-50" />
-                        <span className="text-slate-400 dark:text-slate-500 font-medium z-10 text-center px-4">
-                            [Ali Kaan Özoğlu Fotoğrafı<br />Buraya Gelecek]
-                        </span>
+                        <Image
+                            src="/images/anasayfagorseldik.jpeg"
+                            alt="Ali Kaan Özoğlu"
+                            fill
+                            className="object-cover object-center"
+                            priority
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent" />
                     </motion.div>
 
                     {/* Content */}
