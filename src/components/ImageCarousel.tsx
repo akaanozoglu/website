@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,6 +13,8 @@ interface ImageCarouselProps {
 export function ImageCarousel({ images, title }: ImageCarouselProps) {
     const [current, setCurrent] = useState(0);
     const [direction, setDirection] = useState(0);
+    const touchStartX = useRef(0);
+    const touchEndX = useRef(0);
 
     const next = useCallback(() => {
         setDirection(1);
@@ -23,6 +25,23 @@ export function ImageCarousel({ images, title }: ImageCarouselProps) {
         setDirection(-1);
         setCurrent((prev) => (prev - 1 + images.length) % images.length);
     }, [images.length]);
+
+    // Swipe handler'ları
+    const handleTouchStart = (e: React.TouchEvent) => {
+        touchStartX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+        touchEndX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = () => {
+        const diff = touchStartX.current - touchEndX.current;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) next();
+            else prev();
+        }
+    };
 
     // Otomatik slayt: her 5 saniyede bir sonraki görsel
     useEffect(() => {
@@ -51,7 +70,12 @@ export function ImageCarousel({ images, title }: ImageCarouselProps) {
     if (!images || images.length === 0) return null;
 
     return (
-        <div className="relative w-full aspect-[4/3] md:aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl group bg-slate-900">
+        <div
+            className="relative w-full aspect-[4/3] md:aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl group bg-slate-900 touch-pan-y"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+        >
             {/* Görseller */}
             <AnimatePresence initial={false} custom={direction} mode="wait">
                 <motion.div
