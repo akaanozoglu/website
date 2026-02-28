@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/Button";
-import { Send, Mail, MapPin, CalendarDays, AlertCircle, Phone } from "lucide-react";
+import { Send, Mail, MapPin, CalendarDays, AlertCircle, Phone, Linkedin } from "lucide-react";
 
 export function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -110,6 +110,19 @@ export function Contact() {
                             <div>
                                 <h4 className="text-lg font-bold mb-1">Konum</h4>
                                 <p className="text-slate-400">Türkiye genelinde ve online olarak kurumsal / bireysel eğitimler.</p>
+                            </div>
+                        </div>
+
+                        <div className="flex items-start gap-4">
+                            <div className="w-12 h-12 rounded-lg bg-slate-800/50 flex items-center justify-center text-primary-400 border border-slate-700/50">
+                                <Linkedin size={24} />
+                            </div>
+                            <div>
+                                <h4 className="text-lg font-bold mb-1">LinkedIn</h4>
+                                <p className="text-slate-400 mb-1">Profesyonel ağımda bana ulaşın.</p>
+                                <a href="https://www.linkedin.com/in/kaanozglu/" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 font-medium transition-colors">
+                                    linkedin.com/in/kaanozglu
+                                </a>
                             </div>
                         </div>
                     </motion.div>

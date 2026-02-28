@@ -51,7 +51,7 @@ export function ImageCarousel({ images, title }: ImageCarouselProps) {
     if (!images || images.length === 0) return null;
 
     return (
-        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl group bg-slate-900">
+        <div className="relative w-full aspect-[4/3] md:aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl group bg-slate-900">
             {/* Görseller */}
             <AnimatePresence initial={false} custom={direction} mode="wait">
                 <motion.div
@@ -68,7 +68,7 @@ export function ImageCarousel({ images, title }: ImageCarouselProps) {
                         src={images[current]}
                         alt={`${title} - Slayt ${current + 1}`}
                         fill
-                        className="object-contain"
+                        className="object-cover"
                         priority={current === 0}
                     />
                 </motion.div>
@@ -103,8 +103,8 @@ export function ImageCarousel({ images, title }: ImageCarouselProps) {
                                 setCurrent(index);
                             }}
                             className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${index === current
-                                    ? "bg-white scale-125 shadow-lg"
-                                    : "bg-white/50 hover:bg-white/75"
+                                ? "bg-white scale-125 shadow-lg"
+                                : "bg-white/50 hover:bg-white/75"
                                 }`}
                         />
                     ))}

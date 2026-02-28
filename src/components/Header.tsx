@@ -29,7 +29,7 @@ export function Header() {
 
                 {/* Logo */}
                 <Link href="/" className="font-heading font-bold text-2xl tracking-tight text-slate-900 dark:text-white">
-                    Ali Kaan <span className="text-primary-600 dark:text-primary-500">Özoğlu</span>
+                    Ali Kaan Özoğlu
                 </Link>
 
                 {/* Desktop Nav */}

@@ -102,15 +102,15 @@ export function TrainingClient({ service }: { service: ServiceType }) {
                         {trainingImages[service.slug] && trainingImages[service.slug].length > 0 ? (
                             <ImageCarousel images={trainingImages[service.slug]} title={service.title} />
                         ) : (
-                            <div className="w-full aspect-[21/9] md:aspect-[3/1] bg-slate-200 dark:bg-slate-800/80 rounded-3xl overflow-hidden relative group shadow-xl">
-                                <Image
-                                    src="/images/anasayfagorseldik.jpeg"
-                                    alt={`${service.title} Eğitimi`}
-                                    fill
-                                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                                />
-                                <div className={`absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-60`} />
-                                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
+                            <div className={`w-full aspect-[4/3] md:aspect-[16/10] rounded-3xl overflow-hidden relative shadow-2xl flex flex-col items-center justify-center bg-gradient-to-br ${service.color}`}>
+                                <div className="text-white/90 mb-6">
+                                    {iconMap[service.icon] || null}
+                                </div>
+                                <h2 className="text-3xl md:text-5xl font-heading font-bold text-white text-center px-8 leading-tight">
+                                    {service.title}
+                                </h2>
+                                <p className="text-white/70 mt-4 text-lg font-medium">Ali Kaan Özoğlu</p>
+                                <div className="absolute inset-0 bg-black/10" />
                             </div>
                         )}
                     </motion.div>
@@ -122,18 +122,10 @@ export function TrainingClient({ service }: { service: ServiceType }) {
                         transition={{ duration: 0.5 }}
                         className="glass-panel p-8 md:p-12 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 backdrop-blur-xl bg-white/70 dark:bg-slate-900/60 shadow-xl shadow-slate-200/20 dark:shadow-none"
                     >
-                        <h2 className="text-2xl md:text-3xl font-bold mb-8 font-heading text-slate-800 dark:text-slate-100 flex items-center gap-4">
-                            <span className={`w-8 h-1 rounded-full bg-gradient-to-r ${service.color} inline-block`} />
-                            Eğitim Hakkında
-                        </h2>
-
-                        <div className="prose prose-lg dark:prose-invert max-w-none prose-slate">
-                            {service.fullDescription.split('\n').map((paragraph, index) => (
-                                <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg mb-6 last:mb-0">
-                                    {paragraph.trim()}
-                                </p>
-                            ))}
-                        </div>
+                        <div
+                            className="prose prose-lg dark:prose-invert max-w-none prose-slate prose-headings:font-heading prose-headings:text-slate-800 dark:prose-headings:text-slate-100 prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:mt-10 prose-h2:mb-4 prose-p:text-slate-600 dark:prose-p:text-slate-300 prose-p:leading-relaxed"
+                            dangerouslySetInnerHTML={{ __html: service.fullDescription }}
+                        />
 
                         {/* Call to Actions */}
                         <div className="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center gap-6 justify-center">
