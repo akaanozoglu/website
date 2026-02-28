@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/Button";
-import { Send, Mail, MapPin, CalendarDays } from "lucide-react";
+import { Send, Mail, MapPin, CalendarDays, AlertCircle } from "lucide-react";
 
 export function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -12,11 +12,33 @@ export function Contact() {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
-        // Simüle edilmiş form gönderimi (Gerçek Vercel + Resend entegrasyonu buraya bağlanacak)
-        setTimeout(() => {
+        setSubmitStatus("idle");
+
+        const formData = new FormData(e.currentTarget);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            subject: formData.get('subject'),
+            message: formData.get('message'),
+        };
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                setSubmitStatus("success");
+            } else {
+                setSubmitStatus("error");
+            }
+        } catch (error) {
+            setSubmitStatus("error");
+        } finally {
             setIsSubmitting(false);
-            setSubmitStatus("success");
-        }, 1500);
+        }
     };
 
     return (
@@ -62,8 +84,8 @@ export function Contact() {
                             <div>
                                 <h4 className="text-lg font-bold mb-1">E-Posta Yoluyla</h4>
                                 <p className="text-slate-400 mb-1">Projeleriniz veya sorularınız için.</p>
-                                <a href="mailto:hello@alikaan.com" className="text-primary-400 hover:text-primary-300 font-medium transition-colors">
-                                    iletisim@alikaanozoglu.com
+                                <a href="mailto:a.kaanozoglu@gmail.com" className="text-primary-400 hover:text-primary-300 font-medium transition-colors">
+                                    a.kaanozoglu@gmail.com
                                 </a>
                             </div>
                         </div>
@@ -113,11 +135,20 @@ export function Contact() {
                             </div>
                         ) : (
                             <form onSubmit={handleSubmit} className="space-y-6">
+
+                                {submitStatus === "error" && (
+                                    <div className="bg-red-500/10 border border-red-500/20 text-red-400 px-4 py-3 rounded-lg flex items-center gap-3">
+                                        <AlertCircle className="w-5 h-5" />
+                                        <span className="text-sm">Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin veya doğrudan mail atın.</span>
+                                    </div>
+                                )}
+
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="space-y-2">
                                         <label htmlFor="name" className="text-sm font-medium text-slate-300">İsim Soyisim</label>
                                         <input
                                             id="name"
+                                            name="name"
                                             required
                                             className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all"
                                             placeholder="Adınız Soyadınız"
@@ -127,6 +158,7 @@ export function Contact() {
                                         <label htmlFor="email" className="text-sm font-medium text-slate-300">E-Posta Adresi</label>
                                         <input
                                             id="email"
+                                            name="email"
                                             type="email"
                                             required
                                             className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all"
@@ -138,6 +170,7 @@ export function Contact() {
                                     <label htmlFor="subject" className="text-sm font-medium text-slate-300">Konu</label>
                                     <input
                                         id="subject"
+                                        name="subject"
                                         required
                                         className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all"
                                         placeholder="Eğitim / İşbirliği Talebi"
@@ -147,6 +180,7 @@ export function Contact() {
                                     <label htmlFor="message" className="text-sm font-medium text-slate-300">Mesajınız</label>
                                     <textarea
                                         id="message"
+                                        name="message"
                                         required
                                         rows={4}
                                         className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all resize-none"
