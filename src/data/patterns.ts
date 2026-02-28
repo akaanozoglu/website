@@ -28,7 +28,7 @@ function createEmojiPattern(emojis: string[]): string {
     let texts = '';
     positions.forEach((pos, i) => {
         const emoji = emojis[i % emojis.length];
-        texts += `<text x='${pos.x}' y='${pos.y}' font-size='${pos.s}' text-anchor='middle' fill='rgba(0,0,0,0.12)' transform='rotate(${pos.rot} ${pos.x} ${pos.y})' style='filter:grayscale(1)'>${emoji}</text>`;
+        texts += `<text x='${pos.x}' y='${pos.y}' font-size='${pos.s}' text-anchor='middle' fill='rgba(0,0,0,0.16)' transform='rotate(${pos.rot} ${pos.x} ${pos.y})' style='filter:grayscale(1)'>${emoji}</text>`;
     });
 
     const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${size} ${size}' width='${size}' height='${size}'>${texts}</svg>`;
