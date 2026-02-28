@@ -6,6 +6,7 @@ import { Lightbulb, Code, Leaf, Briefcase, FileText, Database, Droplets, Wind, R
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { trainingPatterns } from "@/data/patterns";
 
 const iconMap: Record<string, React.ReactNode> = {
     Code: <Code size={48} />,
@@ -37,9 +38,17 @@ type ServiceType = {
 export function TrainingClient({ service }: { service: ServiceType }) {
     const whatsappMessage = encodeURIComponent(`${service.title} eğitimi ile ilgili daha fazla bilgi almak istiyorum.`);
     const whatsappUrl = `https://wa.me/905340312088?text=${whatsappMessage}`;
+    const patternUrl = trainingPatterns[service.slug] || "";
 
     return (
-        <main className="min-h-screen pt-20">
+        <main className="min-h-screen pt-20 relative">
+            {/* WhatsApp tarzı eğitime özel desen arkaplanı - tüm sayfayı kaplar */}
+            {patternUrl && (
+                <div
+                    className="fixed inset-0 pointer-events-none z-0"
+                    style={{ backgroundImage: `url("${patternUrl}")`, backgroundRepeat: 'repeat', backgroundSize: '200px 200px' }}
+                />
+            )}
             <Header />
 
             {/* Dynamic Background */}
