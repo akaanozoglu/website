@@ -1,46 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Lightbulb, Code, Leaf, Briefcase, FileText, Database, Mic } from "lucide-react";
+import Link from "next/link";
+import { Lightbulb, Code, Leaf, Briefcase, FileText, Database, ArrowRight, Droplets, Wind, RefreshCw, BarChart, Presentation, Laptop, UserCheck, Globe, Mic } from "lucide-react";
+import { servicesData } from "@/data/services";
 
-const services = [
-    {
-        icon: <Code size={32} />,
-        title: "Algoritmik Düşünme",
-        description: "Algoritmik düşünme ile sistematik problem çözme yaklaşımlarını öğrenin.",
-        color: "from-blue-500 to-cyan-500"
-    },
-    {
-        icon: <Lightbulb size={32} />,
-        title: "Tasarım Odaklı Düşünme",
-        description: "Kullanıcı merkezli inovasyon ve yaratıcı çözüm stratejileri geliştirme.",
-        color: "from-orange-500 to-pink-500"
-    },
-    {
-        icon: <Briefcase size={32} />,
-        title: "Girişimcilik 101",
-        description: "Fikirden iş modeline uzanan yapı taşları ve stratejik büyüme adımları.",
-        color: "from-purple-500 to-indigo-500"
-    },
-    {
-        icon: <Leaf size={32} />,
-        title: "Sürdürülebilirlik Başlıkları",
-        description: "Döngüsel ekonomi, karbon/su ayak izi ve iklim değişikliği farkındalığı.",
-        color: "from-emerald-500 to-teal-500"
-    },
-    {
-        icon: <FileText size={32} />,
-        title: "Kariyer Gelişimi & CV",
-        description: "Etkili CV, LinkedIn, portfolyo oluşturma ve proje yazma eğitimleri.",
-        color: "from-rose-500 to-red-500"
-    },
-    {
-        icon: <Database size={32} />,
-        title: "Teknik ve Kişisel Yetkinlik",
-        description: "Excel ile veri yönetimi, diksiyon ve etkili iletişim atölyeleri.",
-        color: "from-amber-400 to-orange-500"
-    }
-];
+const iconMap: Record<string, React.ReactNode> = {
+    Code: <Code size={32} />,
+    Lightbulb: <Lightbulb size={32} />,
+    Briefcase: <Briefcase size={32} />,
+    Leaf: <Leaf size={32} />,
+    FileText: <FileText size={32} />,
+    Database: <Database size={32} />,
+    Droplets: <Droplets size={32} />,
+    Wind: <Wind size={32} />,
+    RefreshCw: <RefreshCw size={32} />,
+    BarChart: <BarChart size={32} />,
+    Presentation: <Presentation size={32} />,
+    Laptop: <Laptop size={32} />,
+    UserCheck: <UserCheck size={32} />,
+    Globe: <Globe size={32} />,
+    Mic: <Mic size={32} />,
+};
 
 export function Services() {
     return (
@@ -71,25 +52,29 @@ export function Services() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {services.map((service, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group glass-panel rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl dark:shadow-none hover:shadow-primary-500/10 cursor-default bg-white/50 dark:bg-slate-900/50"
-                        >
-                            <div className={`w-14 h-14 rounded-xl mb-6 flex items-center justify-center text-white bg-gradient-to-br ${service.color} shadow-lg shadow-${service.color.split('-')[1]}-500/30 group-hover:scale-110 transition-transform duration-300`}>
-                                {service.icon}
-                            </div>
-                            <h3 className="text-xl font-bold font-heading text-slate-900 dark:text-white mb-3">
-                                {service.title}
-                            </h3>
-                            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                                {service.description}
-                            </p>
-                        </motion.div>
+                    {servicesData.map((service, index) => (
+                        <Link href={`/egitimler/${service.slug}`} key={service.slug} className="block group">
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                className="h-full glass-panel rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl dark:shadow-none hover:shadow-primary-500/10 cursor-pointer bg-white/50 dark:bg-slate-900/50 flex flex-col relative overflow-hidden"
+                            >
+                                <div className={`w-14 h-14 rounded-xl mb-6 flex items-center justify-center text-white bg-gradient-to-br ${service.color} shadow-lg shadow-${service.color.split('-')[1]}-500/30 group-hover:scale-110 transition-transform duration-300 z-10 relative`}>
+                                    {iconMap[service.icon]}
+                                </div>
+                                <h3 className="text-xl font-bold font-heading text-slate-900 dark:text-white mb-3 z-10 relative">
+                                    {service.title}
+                                </h3>
+                                <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 flex-1 z-10 relative">
+                                    {service.shortDescription}
+                                </p>
+                                <div className="mt-auto flex items-center text-sm font-bold text-primary-600 dark:text-primary-400 group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors z-10 relative">
+                                    İncele <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </div>
+                            </motion.div>
+                        </Link>
                     ))}
                 </div>
             </div>
