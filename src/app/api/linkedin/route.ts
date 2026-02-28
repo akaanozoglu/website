@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 const APIFY_TOKEN = process.env.APIFY_TOKEN;
-const ACTOR_ID = 'scraper-engine~linkedin-profile-post-scraper';
+const ACTOR_ID = 'harvestapi~linkedin-profile-posts';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/kaanozglu/';
 
 export async function GET() {
@@ -10,7 +10,6 @@ export async function GET() {
             return NextResponse.json({ error: 'API token missing' }, { status: 500 });
         }
 
-        // Apify Actor'ü çalıştır ve sonucu bekle (synchronous run)
         const runResponse = await fetch(
             `https://api.apify.com/v2/acts/${ACTOR_ID}/run-sync-get-dataset-items?token=${APIFY_TOKEN}`,
             {
@@ -21,6 +20,7 @@ export async function GET() {
                     maxPosts: 6,
                     scrapeReactions: false,
                     scrapeComments: false,
+                    includeQuotePosts: true,
                     includeReposts: false,
                 }),
             }
@@ -34,11 +34,11 @@ export async function GET() {
 
         const posts = await runResponse.json();
 
-        // Sadece gerekli alanları döndür (veri minimizasyonu)
+        // Harvest API response binding
         const cleanPosts = posts
             .filter((p: Record<string, unknown>) => p.type === 'post')
             .slice(0, 6)
-            .map((post: Record<string, unknown>) => ({
+            .map((post: any) => ({
                 id: post.id,
                 content: post.content,
                 linkedinUrl: post.linkedinUrl,
@@ -46,9 +46,9 @@ export async function GET() {
                 postImages: post.postImages,
                 engagement: post.engagement,
                 author: post.author ? {
-                    name: (post.author as Record<string, unknown>).name,
-                    info: (post.author as Record<string, unknown>).info,
-                    avatar: (post.author as Record<string, unknown>).avatar,
+                    name: post.author.name,
+                    info: post.author.info,
+                    avatar: post.author.avatar,
                 } : null,
             }));
 
