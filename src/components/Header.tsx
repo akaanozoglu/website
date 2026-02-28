@@ -24,7 +24,7 @@ export function Header() {
     }, []);
 
     return (
-        <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'glass-panel border-b border-slate-200/50 dark:border-slate-800/50 py-0' : 'bg-transparent py-2'}`}>
+        <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 dark:bg-slate-900/85 backdrop-blur-2xl border-b border-slate-200/60 dark:border-slate-800/60 py-0 shadow-lg shadow-slate-900/5' : 'bg-transparent py-2'}`}>
             <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
 
                 {/* Logo */}
