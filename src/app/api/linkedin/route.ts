@@ -23,6 +23,9 @@ export async function GET() {
                     includeQuotePosts: true,
                     includeReposts: false,
                 }),
+                next: {
+                    revalidate: 3600 // 1 saatte bir arka planda günceller
+                }
             }
         );
 
