@@ -5,6 +5,7 @@ import { Contact } from "@/components/Contact";
 import { Lightbulb, Code, Leaf, Briefcase, FileText, Database, Droplets, Wind, RefreshCw, BarChart, Presentation, Laptop, UserCheck, Globe, Mic, Image as ImageIcon, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const iconMap: Record<string, React.ReactNode> = {
     Code: <Code size={48} />,
@@ -79,17 +80,23 @@ export function TrainingClient({ service }: { service: ServiceType }) {
             <section className="py-12 pb-24 bg-slate-50 dark:bg-slate-950 relative">
                 <div className="container mx-auto px-4 max-w-4xl">
 
-                    {/* Placeholder for Course Image */}
+                    {/* Dynamic Course Image (anasayfagorseldik.jpeg) */}
                     <motion.div
                         initial={{ y: 40, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="w-full aspect-[21/9] md:aspect-[3/1] bg-slate-200 dark:bg-slate-800/80 rounded-3xl mb-16 flex flex-col items-center justify-center border border-slate-300 dark:border-slate-700/50 shadow-inner overflow-hidden relative group"
+                        className="w-full aspect-[21/9] md:aspect-[3/1] bg-slate-200 dark:bg-slate-800/80 rounded-3xl mb-16 overflow-hidden relative group shadow-xl"
                     >
-                        <ImageIcon size={48} className="text-slate-400 dark:text-slate-600 mb-4 group-hover:scale-110 transition-transform duration-500" />
-                        <span className="text-slate-500 dark:text-slate-500 font-medium">Eğitim Görseli Alanı</span>
-                        <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                        <Image
+                            src="/images/anasayfagorseldik.jpeg"
+                            alt={`${service.title} Eğitimi`}
+                            fill
+                            className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                            priority
+                        />
+                        <div className={`absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-60`} />
+                        <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
                     </motion.div>
 
                     <motion.div
