@@ -1,69 +1,53 @@
-﻿// Emoji bazlı arkaplan desenleri - gri tonlarda, yüksek yoğunluklu, WhatsApp tarzı
-// Her eğitim için konuya uygun emojilerden oluşan yoğun desen
+﻿// Emoji bazlı arkaplan desenleri - organik/rastgele yerleşim, yüksek görünürlük
+// Her eğitim için konuya uygun emojilerden oluşan desen
 
-function createEmojiPattern(emojis: string[], size = 60): string {
-    // Emojileri sık bir grid halinde dizerek yoğun bir desen oluştur
-    const rows = 6;
-    const cols = 6;
-    const cellW = size / cols;
-    const cellH = size / rows;
+function createEmojiPattern(emojis: string[]): string {
+    // Büyük tile alanında rastgele ama çakışmayan konumlarda emojiler yerleştir
+    const size = 200;
+    const positions = [
+        // Organik, doğal görünümlü saçılma deseni - hiçbiri düz çizgide değil
+        { x: 12, y: 18, rot: -15, s: 14 },
+        { x: 68, y: 8, rot: 20, s: 12 },
+        { x: 140, y: 22, rot: -8, s: 15 },
+        { x: 38, y: 52, rot: 12, s: 13 },
+        { x: 105, y: 45, rot: -22, s: 14 },
+        { x: 170, y: 55, rot: 5, s: 12 },
+        { x: 22, y: 88, rot: 18, s: 12 },
+        { x: 82, y: 78, rot: -12, s: 15 },
+        { x: 148, y: 90, rot: 10, s: 13 },
+        { x: 55, y: 120, rot: -20, s: 14 },
+        { x: 120, y: 115, rot: 15, s: 12 },
+        { x: 185, y: 125, rot: -5, s: 14 },
+        { x: 8, y: 148, rot: 8, s: 13 },
+        { x: 90, y: 155, rot: -18, s: 15 },
+        { x: 160, y: 160, rot: 22, s: 12 },
+        { x: 42, y: 185, rot: -10, s: 14 },
+        { x: 130, y: 188, rot: 6, s: 13 },
+    ];
+
     let texts = '';
-
-    for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
-            const emoji = emojis[(r * cols + c) % emojis.length];
-            const x = c * cellW + cellW / 2;
-            const y = r * cellH + cellH / 2 + 3;
-            // Her diğer satırı biraz kaydır (tuğla desenli yerleşim)
-            const offset = r % 2 === 0 ? 0 : cellW / 2;
-            texts += `<text x='${x + offset}' y='${y}' font-size='7' text-anchor='middle' fill='rgba(0,0,0,0.07)' style='filter:grayscale(1)'>${emoji}</text>`;
-        }
-    }
+    positions.forEach((pos, i) => {
+        const emoji = emojis[i % emojis.length];
+        texts += `<text x='${pos.x}' y='${pos.y}' font-size='${pos.s}' text-anchor='middle' fill='rgba(0,0,0,0.12)' transform='rotate(${pos.rot} ${pos.x} ${pos.y})' style='filter:grayscale(1)'>${emoji}</text>`;
+    });
 
     const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${size} ${size}' width='${size}' height='${size}'>${texts}</svg>`;
     return `data:image/svg+xml,${encodeURIComponent(svg)}`;
 }
 
 export const trainingPatterns: Record<string, string> = {
-    // Algoritmik Düşünme: kod, mantık, akış
     "algoritmik-dusunme": createEmojiPattern(['💻', '🧠', '⚙️', '🔢', '📊', '🔄', '💡', '🎯', '📐', '🔧', '⌨️', '🖥️']),
-
-    // Tasarım Odaklı Düşünme: yaratıcılık, empati, prototip
     "tasarim-odakli-dusunme": createEmojiPattern(['🎨', '💡', '✏️', '🖌️', '❤️', '🔍', '📝', '🧩', '🎭', '🪄', '🖼️', '✨']),
-
-    // Girişimcilik 101: iş, büyüme, para
     "girisimcilik-101": createEmojiPattern(['🚀', '📈', '💰', '🎯', '🏆', '💼', '⭐', '📊', '🔑', '💎', '🌟', '🏗️']),
-
-    // Döngüsel Ekonomi: geri dönüşüm, çevre, döngü
     "dongusel-ekonomi": createEmojiPattern(['♻️', '🌿', '🔄', '🌍', '🌱', '💚', '🍃', '📦', '🏭', '⚡', '🔋', '🌾']),
-
-    // Sürdürülebilirlik: doğa, denge, gelecek
     "surdurulebilirlik": createEmojiPattern(['🌍', '🌿', '☀️', '💧', '🌳', '🏔️', '🦋', '🌊', '🌻', '🕊️', '🌈', '⚖️']),
-
-    // Karbon Ayak İzi: emisyon, enerji, ölçüm
     "karbon-ayak-izi": createEmojiPattern(['👣', '🏭', '💨', '🌡️', '🔥', '⚡', '🌍', '📉', '🌬️', '☁️', '🔋', '🌿']),
-
-    // Su Ayak İzi: su, damla, okyanus
     "su-ayak-izi": createEmojiPattern(['💧', '🌊', '🐟', '🚿', '💦', '🏞️', '☔', '🐳', '🌧️', '🧊', '🫧', '🌿']),
-
-    // İklim Değişikliği: hava, sıcaklık, doğa
     "iklim-degisikligi": createEmojiPattern(['🌡️', '🌍', '🔥', '❄️', '🌊', '☀️', '⛈️', '🏔️', '🌪️', '🌋', '🐻‍❄️', '🌿']),
-
-    // Etkili CV Hazırlama: belge, kariyer, başarı
     "etkili-cv-hazirlama": createEmojiPattern(['📄', '✍️', '⭐', '🎓', '💼', '✅', '📋', '🏅', '📎', '🖊️', '📌', '🎯']),
-
-    // LinkedIn Kullanımı: ağ, profil, bağlantı
     "linkedin-kullanimi": createEmojiPattern(['🔗', '👤', '💼', '🌐', '📱', '🤝', '📊', '💬', '📧', '🏢', '👥', '⭐']),
-
-    // Etkili Portfolyo Hazırlama: sunum, galeri, tasarım
     "etkili-portfolyo-hazirlama": createEmojiPattern(['🖼️', '📁', '🎨', '💎', '📂', '✨', '🎬', '📸', '🏆', '🎯', '📐', '🌟']),
-
-    // Proje Yazma: planlama, yönetim, görev
     "proje-yazma": createEmojiPattern(['📋', '📝', '✅', '📊', '🎯', '📅', '⏱️', '🗂️', '📌', '🔗', '📈', '🏗️']),
-
-    // Excel: tablo, grafik, veri
     "excel": createEmojiPattern(['📊', '📈', '🔢', '📉', '💹', '🗃️', '📋', '⚡', '🔣', '📐', '🧮', '💡']),
-
-    // Diksiyon & Etkili İletişim: konuşma, mikrofon, ses
     "diksiyon-ve-etkili-iletisim": createEmojiPattern(['🎤', '💬', '🗣️', '👂', '📢', '🎯', '✨', '📖', '🎭', '🎵', '💡', '🌟']),
 };

@@ -91,29 +91,18 @@ export function TrainingClient({ service }: { service: ServiceType }) {
             <section className="py-12 pb-24 bg-slate-50 dark:bg-slate-950 relative">
                 <div className="container mx-auto px-4 max-w-4xl">
 
-                    {/* Eğitime ait görseller: Carousel veya tekli görsel */}
-                    <motion.div
-                        initial={{ y: 40, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="mb-16"
-                    >
-                        {trainingImages[service.slug] && trainingImages[service.slug].length > 0 ? (
+                    {/* Eğitime ait görseller: Sadece görseli olanlar gösterilir */}
+                    {trainingImages[service.slug] && trainingImages[service.slug].length > 0 && (
+                        <motion.div
+                            initial={{ y: 40, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="mb-16"
+                        >
                             <ImageCarousel images={trainingImages[service.slug]} title={service.title} />
-                        ) : (
-                            <div className={`w-full aspect-[4/3] md:aspect-[16/10] rounded-3xl overflow-hidden relative shadow-2xl flex flex-col items-center justify-center bg-gradient-to-br ${service.color}`}>
-                                <div className="text-white/90 mb-6">
-                                    {iconMap[service.icon] || null}
-                                </div>
-                                <h2 className="text-3xl md:text-5xl font-heading font-bold text-white text-center px-8 leading-tight">
-                                    {service.title}
-                                </h2>
-                                <p className="text-white/70 mt-4 text-lg font-medium">Ali Kaan Özoğlu</p>
-                                <div className="absolute inset-0 bg-black/10" />
-                            </div>
-                        )}
-                    </motion.div>
+                        </motion.div>
+                    )}
 
                     <motion.div
                         initial={{ y: 30, opacity: 0 }}
@@ -123,7 +112,7 @@ export function TrainingClient({ service }: { service: ServiceType }) {
                         className="glass-panel p-8 md:p-12 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 backdrop-blur-xl bg-white/70 dark:bg-slate-900/60 shadow-xl shadow-slate-200/20 dark:shadow-none"
                     >
                         <div
-                            className="prose prose-lg dark:prose-invert max-w-none prose-slate prose-headings:font-heading prose-headings:text-slate-800 dark:prose-headings:text-slate-100 prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:mt-10 prose-h2:mb-4 prose-p:text-slate-600 dark:prose-p:text-slate-300 prose-p:leading-relaxed"
+                            className="training-content prose prose-lg dark:prose-invert max-w-none prose-slate prose-headings:font-heading prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:font-bold prose-h2:mt-12 prose-h2:mb-5 prose-h2:pb-3 prose-h2:border-b-2 prose-h2:border-slate-200 dark:prose-h2:border-slate-700 prose-p:text-slate-600 dark:prose-p:text-slate-300 prose-p:leading-[1.85] prose-p:text-[17px] prose-p:mb-5 first:prose-h2:mt-0"
                             dangerouslySetInnerHTML={{ __html: service.fullDescription }}
                         />
 
