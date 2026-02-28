@@ -109,7 +109,7 @@ export function Contact() {
                             </div>
                             <div>
                                 <h4 className="text-lg font-bold mb-1">Konum</h4>
-                                <p className="text-slate-400">Türkiye genelinde ve online olarak kurumsal / bireysel eğitimler.</p>
+                                <p className="text-slate-400">Türkiye genelinde yüz yüze ve online olarak kurumsal / bireysel eğitimler.</p>
                             </div>
                         </div>
 

@@ -65,7 +65,7 @@ export function Header() {
                 <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="md:hidden glass-panel absolute top-20 left-0 w-full border-b border-slate-200/50 dark:border-slate-800/50 pb-4 shadow-xl"
+                    className="md:hidden absolute top-20 left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 pb-4 shadow-xl"
                 >
                     <nav className="flex flex-col px-4 gap-4 pt-4">
                         {navLinks.map((link) => (
