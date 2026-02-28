@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { Stats } from "@/components/Stats";
 import { About } from "@/components/About";
 import { Services } from "@/components/Services";
+import { LinkedInPosts } from "@/components/LinkedInPosts";
 import { Contact } from "@/components/Contact";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <Stats />
       <About />
       <Services />
+      <LinkedInPosts />
       <Contact />
 
       {/* Footer (Simplified inside Contact, but we add a bottom bar) */}
