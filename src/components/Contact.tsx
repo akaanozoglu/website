@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/Button";
-import { Send, Mail, MapPin, CalendarDays, AlertCircle } from "lucide-react";
+import { Send, Mail, MapPin, CalendarDays, AlertCircle, Phone } from "lucide-react";
 
 export function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -92,13 +92,13 @@ export function Contact() {
 
                         <div className="flex items-start gap-4">
                             <div className="w-12 h-12 rounded-lg bg-slate-800/50 flex items-center justify-center text-primary-400 border border-slate-700/50">
-                                <CalendarDays size={24} />
+                                <Phone size={24} />
                             </div>
                             <div>
-                                <h4 className="text-lg font-bold mb-1">Toplantı Planlayın</h4>
-                                <p className="text-slate-400 mb-1">Eğitim ihtiyaçlarınızı 15 dakikalık kısa bir görüşmede değerlendirelim.</p>
-                                <a href="#" className="text-primary-400 hover:text-primary-300 font-medium transition-colors">
-                                    Takvimimi Gör &rarr;
+                                <h4 className="text-lg font-bold mb-1">Telefon ile Ulaşın</h4>
+                                <p className="text-slate-400 mb-1">Eğitim ihtiyaçlarınızı doğrudan değerlendirelim.</p>
+                                <a href="tel:+905340312088" className="text-primary-400 hover:text-primary-300 font-medium transition-colors">
+                                    +90 534 031 20 88
                                 </a>
                             </div>
                         </div>

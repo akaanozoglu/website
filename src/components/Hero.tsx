@@ -14,16 +14,6 @@ export function Hero() {
             <div className="container px-4 md:px-6 relative z-10 mx-auto max-w-5xl">
                 <div className="flex flex-col items-center text-center space-y-8">
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="inline-flex items-center rounded-full border border-primary-200 dark:border-primary-800 bg-primary-50 dark:bg-primary-900/30 px-3 py-1 text-sm font-medium text-primary-600 dark:text-primary-400 mb-4 shadow-sm"
-                    >
-                        <span className="flex h-2 w-2 rounded-full bg-primary-500 mr-2" />
-                        Yeni Dönem Eğitimleri Başlıyor
-                    </motion.div>
-
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -50,13 +40,13 @@ export function Hero() {
                         className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4"
                     >
                         <Button size="lg" className="group" asChild>
-                            <a href="#services">
+                            <a href="#services" className="flex items-center justify-center">
                                 Eğitimleri İncele
                                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                             </a>
                         </Button>
                         <Button variant="outline" size="lg" asChild>
-                            <a href="#about">
+                            <a href="#about" className="flex items-center justify-center">
                                 Daha Fazla Bilgi
                             </a>
                         </Button>
