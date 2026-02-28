@@ -142,7 +142,7 @@ export function TrainingClient({ service }: { service: ServiceType }) {
 
             <footer className="py-8 bg-slate-950 text-center border-t border-slate-800">
                 <p className="text-slate-500 text-sm">
-                    &copy; {new Date().getFullYear()} Ali Kaan Özoğlu. Geliştirici: Fabri-Lab
+                    &copy; {new Date().getFullYear()} Ali Kaan Özoğlu
                 </p>
             </footer>
         </main>

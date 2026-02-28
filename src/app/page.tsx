@@ -17,7 +17,7 @@ export default function Home() {
 
       {/* Footer (Simplified inside Contact, but we add a bottom bar) */}
       <footer className="bg-slate-950 text-slate-500 py-8 border-t border-slate-900 text-center text-sm">
-        <p>© {new Date().getFullYear()} Ali Kaan Özoğlu. Geliştirici: Fabri-Lab</p>
+        <p>&copy; {new Date().getFullYear()} Ali Kaan Özoğlu</p>
       </footer>
     </main>
   );
