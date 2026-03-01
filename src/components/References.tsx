@@ -11,10 +11,10 @@ const references = [
     { name: "Konya Teknik Üniversitesi", src: "/images/referanslar/Konya Teknik Üniversitesi.PNG" },
     { name: "Konya Gıda ve Tarım Üniversitesi", src: "/images/referanslar/Konya Gıda ve Tarım Üniversitesi.PNG" },
     { name: "Habitat Derneği", src: "/images/referanslar/Habitat Derneği.PNG" },
-    { name: "Kapsül", src: "/images/referanslar/Kapsül Teknoloji Platformu.PNG" },
-    { name: "Sia", src: "/images/referanslar/Sosyal İnovasyon Ajansı.PNG" },
-    { name: "Kademe", src: "/images/referanslar/Kariyer Destek Eğitim Merkezi.png" },
-    { name: "Localvore", src: "/images/referanslar/Localvore Biotechnology.jpg" },
+    { name: "Kapsül Teknoloji Platformu", src: "/images/referanslar/Kapsül Teknoloji Platformu.PNG" },
+    { name: "Sosyal İnovasyon Ajansı", src: "/images/referanslar/Sosyal İnovasyon Ajansı.PNG" },
+    { name: "Kariyer Destek Eğitim Merkezi", src: "/images/referanslar/Kariyer Destek Eğitim Merkezi.png" },
+    { name: "Localvore Biotechnology", src: "/images/referanslar/Localvore Biotechnology.jpg" },
 ];
 
 function LogoCard({ item }: { item: typeof references[0] }) {
