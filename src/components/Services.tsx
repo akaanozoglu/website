@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Lightbulb, Code, Leaf, Briefcase, FileText, Database, ArrowRight, Droplets, Wind, RefreshCw, BarChart, Presentation, Laptop, UserCheck, Globe, Mic } from "lucide-react";
+import { Lightbulb, Code, Leaf, Briefcase, FileText, Database, ArrowRight, Droplets, Wind, RefreshCw, BarChart, Presentation, Laptop, UserCheck, Globe, Mic, ChevronDown, ChevronUp } from "lucide-react";
 import { servicesData } from "@/data/services";
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -24,6 +25,9 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 export function Services() {
+    const [showAll, setShowAll] = useState(false);
+    const visibleServices = showAll ? servicesData : servicesData.slice(0, 6);
+
     return (
         <section id="services" className="py-24 relative overflow-hidden">
             {/* Background Decor */}
@@ -52,7 +56,7 @@ export function Services() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {servicesData.map((service, index) => (
+                    {visibleServices.map((service, index) => (
                         <Link href={`/egitimler/${service.slug}`} key={service.slug} className="block group">
                             <motion.div
                                 initial={{ opacity: 0, y: 30 }}
@@ -77,6 +81,32 @@ export function Services() {
                         </Link>
                     ))}
                 </div>
+
+                {servicesData.length > 6 && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        className="mt-12 text-center"
+                    >
+                        <button
+                            onClick={() => setShowAll(!showAll)}
+                            className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-all hover:shadow-md"
+                        >
+                            {showAll ? (
+                                <>
+                                    <span>Daha Az Göster</span>
+                                    <ChevronUp size={18} />
+                                </>
+                            ) : (
+                                <>
+                                    <span>Tüm Eğitimleri Gör</span>
+                                    <ChevronDown size={18} />
+                                </>
+                            )}
+                        </button>
+                    </motion.div>
+                )}
             </div>
         </section>
     );
