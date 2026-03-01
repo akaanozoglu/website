@@ -14,7 +14,7 @@ const references = [
     { name: "Kapsül Teknoloji Platformu", src: "/images/referanslar/Kapsül Teknoloji Platformu.PNG" },
     { name: "Sosyal İnovasyon Ajansı", src: "/images/referanslar/Sosyal İnovasyon Ajansı.PNG" },
     { name: "Kariyer Destek Eğitim Merkezi", src: "/images/referanslar/Kariyer Destek Eğitim Merkezi.png" },
-    { name: "Localvore Biotechnology", src: "/images/referanslar/Localvore Biotechnology.jpg" },
+    { name: "Localvore Biotechnology", src: "/images/referanslar/localvore.png" },
 ];
 
 function LogoCard({ item }: { item: typeof references[0] }) {
