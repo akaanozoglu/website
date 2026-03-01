@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 const navLinks = [
     { name: "Hakkımda", href: "#about" },
     { name: "Eğitimler", href: "#services" },
+    { name: "Referanslar", href: "#references" },
     { name: "İletişim", href: "#contact" },
 ];
 
