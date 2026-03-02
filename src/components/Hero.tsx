@@ -27,7 +27,7 @@ export function Hero() {
     return (
         <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
             {/* Arka planda dönen blurlu görseller */}
-            <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 z-0 hidden md:block">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={currentImage}
