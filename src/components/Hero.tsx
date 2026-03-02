@@ -26,9 +26,34 @@ export function Hero() {
 
     return (
         <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+            {/* Arka planda dönen blurlu görseller */}
+            <div className="absolute inset-0 z-0">
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={currentImage}
+                        initial={{ opacity: 0, scale: 1.1 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1.2 }}
+                        className="absolute inset-0"
+                    >
+                        <Image
+                            src={heroImages[currentImage]}
+                            alt={`Eğitim görseli ${currentImage + 1}`}
+                            fill
+                            className="object-cover blur-[6px] scale-105"
+                            priority={currentImage === 0}
+                            sizes="100vw"
+                        />
+                    </motion.div>
+                </AnimatePresence>
+                {/* Koyu overlay - metnin okunabilirliği için */}
+                <div className="absolute inset-0 bg-white/70 dark:bg-slate-950/80 z-[1]" />
+            </div>
+
             {/* Background gradients */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-500/10 dark:bg-primary-500/5 blur-[120px] rounded-full pointer-events-none" />
-            <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent-500/10 dark:bg-accent-500/5 blur-[100px] rounded-full pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-500/10 dark:bg-primary-500/5 blur-[120px] rounded-full pointer-events-none z-[2]" />
+            <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent-500/10 dark:bg-accent-500/5 blur-[100px] rounded-full pointer-events-none z-[2]" />
 
             <div className="container px-4 md:px-6 relative z-10 mx-auto max-w-5xl">
                 <div className="flex flex-col items-center text-center space-y-8">
@@ -71,52 +96,19 @@ export function Hero() {
                         </Button>
                     </motion.div>
 
-                    {/* Blurlu Eğitim Görselleri Carousel */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.5 }}
-                        className="relative w-full max-w-4xl mt-12 rounded-2xl overflow-hidden shadow-2xl shadow-slate-900/20 dark:shadow-black/40"
-                    >
-                        <div className="relative aspect-[16/8] md:aspect-[16/7]">
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    key={currentImage}
-                                    initial={{ opacity: 0, scale: 1.05 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.98 }}
-                                    transition={{ duration: 0.8 }}
-                                    className="absolute inset-0"
-                                >
-                                    <Image
-                                        src={heroImages[currentImage]}
-                                        alt={`Eğitim görseli ${currentImage + 1}`}
-                                        fill
-                                        className="object-cover blur-[2px]"
-                                        priority={currentImage === 0}
-                                        sizes="(max-width: 768px) 100vw, 900px"
-                                    />
-                                </motion.div>
-                            </AnimatePresence>
-
-                            {/* Üst overlay gradient */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-white/30 dark:from-slate-950/70 dark:via-transparent dark:to-slate-950/30 z-10" />
-
-                            {/* Carousel göstergeler */}
-                            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-                                {heroImages.map((_, index) => (
-                                    <button
-                                        key={index}
-                                        onClick={() => setCurrentImage(index)}
-                                        className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImage
-                                                ? "bg-white w-6 shadow-md"
-                                                : "bg-white/50 hover:bg-white/80"
-                                            }`}
-                                    />
-                                ))}
-                            </div>
-                        </div>
-                    </motion.div>
+                    {/* Carousel göstergeler */}
+                    <div className="flex gap-2 mt-6">
+                        {heroImages.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrentImage(index)}
+                                className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImage
+                                        ? "bg-primary-600 w-6 shadow-md"
+                                        : "bg-slate-400/50 hover:bg-slate-500"
+                                    }`}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
 
@@ -124,7 +116,7 @@ export function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1, duration: 1 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer flex flex-col items-center text-slate-400 hover:text-primary-500 transition-colors"
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer flex flex-col items-center text-slate-400 hover:text-primary-500 transition-colors z-10"
                 onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
             >
                 <span className="text-sm font-medium mb-2">Keşfet</span>
