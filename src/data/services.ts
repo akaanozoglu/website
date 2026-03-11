@@ -27,6 +27,78 @@ export const servicesData = [
         color: "from-blue-500 to-cyan-500"
     },
     {
+        slug: "dongusel-ekonomi",
+        icon: "RefreshCw",
+        title: "Döngüsel Ekonomi",
+        shortDescription: "Atık azaltımı ve kaynakların yeniden değer üretmesini hedefleyen sistem yaklaşımı.",
+        fullDescription: `<h2>Döngüsel Ekonomi Nedir?</h2>
+<p>Döngüsel ekonomi, geleneksel <strong>"al–üret–tüket–at"</strong> (doğrusal ekonomi) modelinin ötesine geçen, kaynakların <strong>sürekli olarak yeniden değer üretmesini</strong> hedefleyen bir ekonomik sistem yaklaşımıdır. Bu modelde atık kavramı ortadan kaldırılır; her çıktı bir başka sürecin girdisi haline gelir.</p>
+
+<h2>Eğitim Kapsamı</h2>
+<ul>
+<li>Döngüsel ekonominin <strong>temel prensipleri</strong></li>
+<li>Doğrusal ekonomiden farkları ve avantajları</li>
+<li><strong>Atık azaltımı</strong> ve yeniden kullanım stratejileri</li>
+<li>Ürün yaşam döngüsü analizi <strong>(LCA)</strong></li>
+<li><strong>Cradle-to-Cradle</strong> tasarım felsefesi</li>
+<li>Sürdürülebilir <strong>iş modeli tasarımı</strong></li>
+</ul>
+
+<h2>Kurumsal Katkılar</h2>
+<p>Döngüsel ekonomi uygulamaları, kurumlar için <strong>maliyet avantajı</strong> sağlarken çevresel etki azaltımına da önemli katkı sunar. Tedarik zinciri optimizasyonu, kaynak verimliliği artışı ve <strong>yeni gelir modelleri oluşturma</strong> konularında stratejik perspektif kazandırılır.</p>
+
+<h2>Eğitim Kazanımları</h2>
+<p>Katılımcılar; döngüsel iş modelleri tasarlama, organizasyonel <strong>sürdürülebilirlik dönüşümü</strong> planlama ve çevresel-ekonomik dengeyi gözeten <strong>stratejik kararlar alma</strong> becerisi kazanır.</p>`,
+        color: "from-emerald-500 to-green-500"
+    },
+    {
+        slug: "etkili-cv-hazirlama",
+        icon: "FileText",
+        title: "Etkili CV Hazırlama",
+        shortDescription: "Güçlü bir kişisel marka dili ve dikkat çekici CV yapı tasarımı.",
+        fullDescription: `<h2>CV Neden Stratejik Bir Araçtır?</h2>
+<p>CV yalnızca geçmiş deneyimlerin listesi değil; <strong>profesyonel kimliğinizi ve değer önerinizi</strong> potansiyel işverenlere sunan stratejik bir konumlandırma aracıdır. İlk izlenim genellikle CV ile başlar ve ortalama bir CV'ye ayrılan süre <strong>sadece 6-8 saniyedir.</strong></p>
+
+<h2>Eğitim Kapsamında Neler Var?</h2>
+<ul>
+<li>CV <strong>yapı tasarımı</strong> ve format seçimi</li>
+<li><strong>ATS</strong> (Applicant Tracking System) uyumlu yazım</li>
+<li>Güçlü ve <strong>ölçülebilir başarı ifadeleri</strong> oluşturma</li>
+<li>Sektörel CV farklılıkları ve özelleştirme</li>
+<li><strong>Kişisel marka dili</strong> oluşturma</li>
+<li>LinkedIn profiliyle tutarlılık sağlama</li>
+</ul>
+
+<h2>Yaparak Öğrenme</h2>
+<p>Eğitimde teorik bilginin yanı sıra, <strong>gerçek CV örnekleri analiz edilir</strong>, güçlü ve zayıf yönler tartışılır. Katılımcılar, <strong>"önce" ve "sonra" karşılaştırmalarıyla</strong> somut ilerleme kaydeder. İşveren bakış açısıyla CV değerlendirme pratiği yapılır.</p>`,
+        color: "from-rose-500 to-pink-600"
+    },
+    {
+        slug: "linkedin-kullanimi",
+        icon: "UserCheck",
+        title: "LinkedIn Kullanımı",
+        shortDescription: "Profil optimizasyonu, network yönetimi ve aktif görünürlük stratejileri.",
+        fullDescription: `<h2>LinkedIn: Kariyer ve Görünürlük Platformu</h2>
+<p>LinkedIn, dünya genelinde <strong>1 milyarı aşkın profesyonelin</strong> bulunduğu en büyük iş ağı platformudur. Doğru kullanıldığında kariyer gelişimi, iş fırsatları ve <strong>kişisel marka inşası</strong> için güçlü bir stratejik araçtır.</p>
+
+<h2>Eğitimde Neler Öğrenilir?</h2>
+<ul>
+<li>Profesyonel <strong>profil optimizasyonu</strong> (başlık, özet, deneyim)</li>
+<li><strong>İçerik stratejisi</strong> oluşturma ve paylaşım planlaması</li>
+<li>Network genişletme ve <strong>bağlantı yönetimi</strong></li>
+<li><strong>SSI</strong> (Social Selling Index) skoru yükseltme</li>
+<li>Kişisel marka inşası ve <strong>görünürlük stratejileri</strong></li>
+<li>Recruiter'ların dikkatini çekme teknikleri</li>
+</ul>
+
+<h2>Pratik Uygulamalar</h2>
+<p>Katılımcılar, eğitim süresince <strong>kendi LinkedIn profillerini optimize eder</strong>, içerik takvimi oluşturur ve etkileşim stratejileri geliştirir. Gerçek başarı hikayeleri ve vaka çalışmalarıyla LinkedIn'in kariyer üzerindeki <strong>somut etkisi</strong> gösterilir.</p>
+
+<h2>Kimler Katılmalı?</h2>
+<p><strong>İş arayanlar, kariyer değişikliği planlayanlar, freelancer'lar, girişimciler</strong> ve kişisel markasını güçlendirmek isteyen herkes bu eğitimden fayda sağlayabilir.</p>`,
+        color: "from-blue-600 to-indigo-600"
+    },
+    {
         slug: "tasarim-odakli-dusunme",
         icon: "Lightbulb",
         title: "Tasarım Odaklı Düşünme",
@@ -74,31 +146,6 @@ export const servicesData = [
 <h2>Eğitimin Farkı</h2>
 <p>Teorik çerçevenin ötesinde, <strong>gerçek vaka analizleri ve uygulama örnekleriyle</strong> desteklenen bu eğitim, katılımcılara kendi fikirlerini yapılandırılmış bir iş modeline dönüştürme yetkinliği kazandırır.</p>`,
         color: "from-purple-500 to-indigo-500"
-    },
-    {
-        slug: "dongusel-ekonomi",
-        icon: "RefreshCw",
-        title: "Döngüsel Ekonomi",
-        shortDescription: "Atık azaltımı ve kaynakların yeniden değer üretmesini hedefleyen sistem yaklaşımı.",
-        fullDescription: `<h2>Döngüsel Ekonomi Nedir?</h2>
-<p>Döngüsel ekonomi, geleneksel <strong>"al–üret–tüket–at"</strong> (doğrusal ekonomi) modelinin ötesine geçen, kaynakların <strong>sürekli olarak yeniden değer üretmesini</strong> hedefleyen bir ekonomik sistem yaklaşımıdır. Bu modelde atık kavramı ortadan kaldırılır; her çıktı bir başka sürecin girdisi haline gelir.</p>
-
-<h2>Eğitim Kapsamı</h2>
-<ul>
-<li>Döngüsel ekonominin <strong>temel prensipleri</strong></li>
-<li>Doğrusal ekonomiden farkları ve avantajları</li>
-<li><strong>Atık azaltımı</strong> ve yeniden kullanım stratejileri</li>
-<li>Ürün yaşam döngüsü analizi <strong>(LCA)</strong></li>
-<li><strong>Cradle-to-Cradle</strong> tasarım felsefesi</li>
-<li>Sürdürülebilir <strong>iş modeli tasarımı</strong></li>
-</ul>
-
-<h2>Kurumsal Katkılar</h2>
-<p>Döngüsel ekonomi uygulamaları, kurumlar için <strong>maliyet avantajı</strong> sağlarken çevresel etki azaltımına da önemli katkı sunar. Tedarik zinciri optimizasyonu, kaynak verimliliği artışı ve <strong>yeni gelir modelleri oluşturma</strong> konularında stratejik perspektif kazandırılır.</p>
-
-<h2>Eğitim Kazanımları</h2>
-<p>Katılımcılar; döngüsel iş modelleri tasarlama, organizasyonel <strong>sürdürülebilirlik dönüşümü</strong> planlama ve çevresel-ekonomik dengeyi gözeten <strong>stratejik kararlar alma</strong> becerisi kazanır.</p>`,
-        color: "from-emerald-500 to-green-500"
     },
     {
         slug: "surdurulebilirlik",
@@ -186,53 +233,6 @@ export const servicesData = [
 <h2>Bilinçten Eyleme</h2>
 <p>Eğitim, yalnızca bilinç oluşturmanın ötesine geçerek <strong>bireysel ve kurumsal düzeyde uygulanabilir çözüm stratejileri</strong> sunmayı hedefler. Katılımcılar, kendi etki alanlarında <strong>iklim dostu kararlar alma</strong> ve çevresel sorumluluk projeleri geliştirme yetkinliği kazanır.</p>`,
         color: "from-red-500 to-orange-500"
-    },
-    {
-        slug: "etkili-cv-hazirlama",
-        icon: "FileText",
-        title: "Etkili CV Hazırlama",
-        shortDescription: "Güçlü bir kişisel marka dili ve dikkat çekici CV yapı tasarımı.",
-        fullDescription: `<h2>CV Neden Stratejik Bir Araçtır?</h2>
-<p>CV yalnızca geçmiş deneyimlerin listesi değil; <strong>profesyonel kimliğinizi ve değer önerinizi</strong> potansiyel işverenlere sunan stratejik bir konumlandırma aracıdır. İlk izlenim genellikle CV ile başlar ve ortalama bir CV'ye ayrılan süre <strong>sadece 6-8 saniyedir.</strong></p>
-
-<h2>Eğitim Kapsamında Neler Var?</h2>
-<ul>
-<li>CV <strong>yapı tasarımı</strong> ve format seçimi</li>
-<li><strong>ATS</strong> (Applicant Tracking System) uyumlu yazım</li>
-<li>Güçlü ve <strong>ölçülebilir başarı ifadeleri</strong> oluşturma</li>
-<li>Sektörel CV farklılıkları ve özelleştirme</li>
-<li><strong>Kişisel marka dili</strong> oluşturma</li>
-<li>LinkedIn profiliyle tutarlılık sağlama</li>
-</ul>
-
-<h2>Yaparak Öğrenme</h2>
-<p>Eğitimde teorik bilginin yanı sıra, <strong>gerçek CV örnekleri analiz edilir</strong>, güçlü ve zayıf yönler tartışılır. Katılımcılar, <strong>"önce" ve "sonra" karşılaştırmalarıyla</strong> somut ilerleme kaydeder. İşveren bakış açısıyla CV değerlendirme pratiği yapılır.</p>`,
-        color: "from-rose-500 to-pink-600"
-    },
-    {
-        slug: "linkedin-kullanimi",
-        icon: "UserCheck",
-        title: "LinkedIn Kullanımı",
-        shortDescription: "Profil optimizasyonu, network yönetimi ve aktif görünürlük stratejileri.",
-        fullDescription: `<h2>LinkedIn: Kariyer ve Görünürlük Platformu</h2>
-<p>LinkedIn, dünya genelinde <strong>1 milyarı aşkın profesyonelin</strong> bulunduğu en büyük iş ağı platformudur. Doğru kullanıldığında kariyer gelişimi, iş fırsatları ve <strong>kişisel marka inşası</strong> için güçlü bir stratejik araçtır.</p>
-
-<h2>Eğitimde Neler Öğrenilir?</h2>
-<ul>
-<li>Profesyonel <strong>profil optimizasyonu</strong> (başlık, özet, deneyim)</li>
-<li><strong>İçerik stratejisi</strong> oluşturma ve paylaşım planlaması</li>
-<li>Network genişletme ve <strong>bağlantı yönetimi</strong></li>
-<li><strong>SSI</strong> (Social Selling Index) skoru yükseltme</li>
-<li>Kişisel marka inşası ve <strong>görünürlük stratejileri</strong></li>
-<li>Recruiter'ların dikkatini çekme teknikleri</li>
-</ul>
-
-<h2>Pratik Uygulamalar</h2>
-<p>Katılımcılar, eğitim süresince <strong>kendi LinkedIn profillerini optimize eder</strong>, içerik takvimi oluşturur ve etkileşim stratejileri geliştirir. Gerçek başarı hikayeleri ve vaka çalışmalarıyla LinkedIn'in kariyer üzerindeki <strong>somut etkisi</strong> gösterilir.</p>
-
-<h2>Kimler Katılmalı?</h2>
-<p><strong>İş arayanlar, kariyer değişikliği planlayanlar, freelancer'lar, girişimciler</strong> ve kişisel markasını güçlendirmek isteyen herkes bu eğitimden fayda sağlayabilir.</p>`,
-        color: "from-blue-600 to-indigo-600"
     },
     {
         slug: "etkili-portfolyo-hazirlama",
