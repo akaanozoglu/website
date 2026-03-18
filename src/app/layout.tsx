@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -25,13 +26,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr" className="scroll-smooth">
+    <html lang="tr" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${outfit.variable} font-sans antialiased text-slate-900 dark:text-slate-50`}
       >
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
-          {children}
-        </div>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+            {children}
+          </div>
+        </ThemeProvider>
         <Analytics />
         <SpeedInsights />
       </body>
