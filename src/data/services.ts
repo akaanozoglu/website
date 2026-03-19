@@ -70,7 +70,11 @@ export const servicesData = [
 </ul>
 
 <h2>Yaparak Öğrenme</h2>
-<p>Eğitimde teorik bilginin yanı sıra, <strong>gerçek CV örnekleri analiz edilir</strong>, güçlü ve zayıf yönler tartışılır. Katılımcılar, <strong>"önce" ve "sonra" karşılaştırmalarıyla</strong> somut ilerleme kaydeder. İşveren bakış açısıyla CV değerlendirme pratiği yapılır.</p>`,
+<p>Eğitimde teorik bilginin yanı sıra, <strong>gerçek CV örnekleri analiz edilir</strong>, güçlü ve zayıf yönler tartışılır. Katılımcılar, <strong>"önce" ve "sonra" karşılaştırmalarıyla</strong> somut ilerleme kaydeder. İşveren bakış açısıyla CV değerlendirme pratiği yapılır.</p>
+
+<h2>CV'nizi Değerlendirin</h2>
+<p>Mevcut CV'nizin ne kadar etkili olduğunu merak ediyor musunuz? <strong>Ücretsiz CV değerlendirme aracımız</strong> ile CV'nizin güçlü ve zayıf yönlerini hemen keşfedin!</p>
+<p><a href="https://cvkontrol.net/" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:linear-gradient(135deg,#e11d48,#db2777);color:#fff;padding:12px 28px;border-radius:8px;font-weight:600;text-decoration:none;font-size:1.05rem;">🔍 CV'nizi Değerlendirin →</a></p>`,
         color: "from-rose-500 to-pink-600"
     },
     {
